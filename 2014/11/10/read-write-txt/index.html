@@ -5,15 +5,18 @@
   
   <title>使用C++编程读取*.txt内容与将程序输出结果输出到*.txt | Shi Xufeng&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在学习和工作中，我们常常需要编写程序分析某个文本的特征。如果在程序执行过程中将文本逐个字符输入，效率之低不言而喻，我们自然会想到让程序直接去读取文本内容即可，如何做到这一点呢？下面我们以.txt格式文本为例说明。">
+  <meta name="description" content="在学习和工作中，我们常常需要编写程序分析某个文本的特征。如果在程序执行过程中将文本逐个字符输入，效率之低不言而喻，我们自然会想到让程序直接去读取文本内容即可，如何做到这一点呢？下面我们以.txt格式文本为例说明。
+C++提供的IO标准库头文件fstream分别定义了从文件中读取与写到文件中去行为的标准类ifstream与ofstream。其中ifstream由istream派生而来，ofstrea">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用C++编程读取*.txt内容与将程序输出结果输出到*.txt">
 <meta property="og:url" content="http://yoursite.com/2014/11/10/read-write-txt/">
 <meta property="og:site_name" content="Shi Xufeng's Blog">
-<meta property="og:description" content="在学习和工作中，我们常常需要编写程序分析某个文本的特征。如果在程序执行过程中将文本逐个字符输入，效率之低不言而喻，我们自然会想到让程序直接去读取文本内容即可，如何做到这一点呢？下面我们以.txt格式文本为例说明。">
+<meta property="og:description" content="在学习和工作中，我们常常需要编写程序分析某个文本的特征。如果在程序执行过程中将文本逐个字符输入，效率之低不言而喻，我们自然会想到让程序直接去读取文本内容即可，如何做到这一点呢？下面我们以.txt格式文本为例说明。
+C++提供的IO标准库头文件fstream分别定义了从文件中读取与写到文件中去行为的标准类ifstream与ofstream。其中ifstream由istream派生而来，ofstrea">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用C++编程读取*.txt内容与将程序输出结果输出到*.txt">
-<meta name="twitter:description" content="在学习和工作中，我们常常需要编写程序分析某个文本的特征。如果在程序执行过程中将文本逐个字符输入，效率之低不言而喻，我们自然会想到让程序直接去读取文本内容即可，如何做到这一点呢？下面我们以.txt格式文本为例说明。">
+<meta name="twitter:description" content="在学习和工作中，我们常常需要编写程序分析某个文本的特征。如果在程序执行过程中将文本逐个字符输入，效率之低不言而喻，我们自然会想到让程序直接去读取文本内容即可，如何做到这一点呢？下面我们以.txt格式文本为例说明。
+C++提供的IO标准库头文件fstream分别定义了从文件中读取与写到文件中去行为的标准类ifstream与ofstream。其中ifstream由istream派生而来，ofstrea">
 
   
     <link rel="alternative" href="/atom.xml" title="Shi Xufeng&#39;s Blog" type="application/atom+xml">
@@ -88,6 +91,28 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在学习和工作中，我们常常需要编写程序分析某个文本的特征。如果在程序执行过程中将文本逐个字符输入，效率之低不言而喻，我们自然会想到让程序直接去读取文本内容即可，如何做到这一点呢？下面我们以<code>.txt</code>格式文本为例说明。</p>
+<p>C++提供的IO标准库头文件<code>fstream</code>分别定义了<code>从文件中读取</code>与<code>写到文件中去</code>行为的标准类<code>ifstream</code>与<code>ofstream</code>。其中<code>ifstream</code>由<code>istream</code>派生而来，<code>ofstream</code>由<code>ostream</code>派生而来。调用头文件<code>fstream</code></p>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span> &lt;fstream&gt;</span>
+</code></pre><p>假设被读取文本为<code>file1.txt</code>，写入文本为<code>file2.exe</code>。定义<code>ifstream</code>类型对象<code>fin</code>与<code>ofstream</code>类型对象<code>fout</code></p>
+<pre><code>ifstream <span class="keyword">fin</span>(<span class="string">"file1.txt"</span>);     // <span class="keyword">read</span> from file1.txt
+ofstream fout(<span class="string">"file2.txt"</span>);    // <span class="keyword">write</span> into file2.txt
+</code></pre><p>由于不知道文本内容类型，定义模板类</p>
+<pre><code>template &lt;typename <span class="literal">T</span>&gt;
+{
+    //statements
+    <span class="keyword">...</span>
+}
+</code></pre><p>定义<code>T</code>类型对象<code>tObj</code>，<code>rObj</code>。将文本<code>file1.txt</code>内容写入<code>tObj</code>，将文本分析结果写入<code>rObj</code>进而导入<code>file2.txt</code></p>
+<pre><code><span class="literal">T</span> tObj, rObj;
+
+fin &gt;&gt; tObj;
+// statements
+<span class="keyword">...</span>
+// results write into rObj
+<span class="keyword">...</span>
+// results write into file2.txt
+fout &lt;&lt; rObj;
+</code></pre><p>通过上述做法便可以实现我们的目标。</p>
 
       
     </div>
