@@ -89,7 +89,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>在学习和工作中，我们常常需要编写程序分析某个文本的特征。如果在程序执行过程中将文本逐个字符输入，效率之低不言而喻，我们自然会想到让程序直接去读取文本内容即可，如何做到这一点呢？下面我们以<code>.txt</code>格式文本为例说明。</p>
+
       
     </div>
     <footer class="article-footer">
@@ -127,10 +128,9 @@
       
         <p>调用C++编译器的命令因编译器和操作系统的不同而不同，常用的编译器是GNU编译器和微软Visual Studio编译器，调用GNU编译器的命令是<code>g++</code>：</p>
 <pre><code><span class="comment">$</span> <span class="comment">g</span><span class="literal">+</span><span class="literal">+</span> <span class="comment">prog1</span><span class="string">.</span><span class="comment">cpp</span> <span class="literal">-</span><span class="comment">o</span> <span class="comment">prog1</span>
-</code></pre><p>这里的<code>$</code>是系统提示符。这个命令产生一个名为<code>prog1</code>或<code>prog1.exe</code>的可执行文件。在UNIX系统下，可执行文件没有后缀；而在Windows下，后缀为<code>.exe</code>，<code>-o prog1</code>是编译器参数以及用来存放可执行文件的文件名。如果省略<code>-o prog1</code>，那么编译器在UNIX系统下产生名为<code>a.out</code>而在Windows下产生名为<code>a.exe</code>的可执行文件。</p>
-<p>微软VS编译器采用命令<code>cl</code>来调用：</p>
+</code></pre><p>这里的<code>$</code>是系统提示符。这个命令产生一个名为<code>prog1</code>或<code>prog1.exe</code>的可执行文件。在UNIX系统下，可执行文件没有后缀；而在Windows下，后缀为<code>.exe</code>，<code>-o prog1</code>是编译器参数以及用来存放可执行文件的文件名。如果省略<code>-o prog1</code>，那么编译器在UNIX系统下产生名为<code>a.out</code>而在Windows下产生名为<code>a.exe</code>的可执行文件。微软VS编译器采用命令<code>cl</code>来调用：</p>
 <pre><code><span class="input"><span class="prompt">C:\directory&gt;</span> cl -<span class="constant">GX</span> prog1.cpp</span>
-</code></pre><p>这里的<code>C:\directory&gt;</code>是系统提示符，<code>directory</code>是当前目录名。<code>cl</code>是调用编译器的命令，<code>-GX</code>是使用命令行界面编译程序时所需的一个选项。微软VS编译器自动产生与源文件同名且后缀为<code>.exe</code>的<br>可执行文件。</p>
+</code></pre><p>这里的<code>C:\directory&gt;</code>是系统提示符，<code>directory</code>是当前目录名。<code>cl</code>是调用编译器的命令，<code>-GX</code>是使用命令行界面编译程序时所需的一个选项。微软VS编译器自动产生与源文件同名且后缀为<code>.exe</code>的可执行文件。</p>
 
       
     </div>
